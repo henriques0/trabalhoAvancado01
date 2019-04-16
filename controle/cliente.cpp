@@ -1,10 +1,16 @@
 #include <string>
 #include <iostream>
 #include <list>
-#include "controle/estrutura.cpp"
+#include "estrutura.cpp"
+
+struct cliente_t {
+    int cod;
+    string nome;
+    int idade;
+};
 
 cliente_t cli;
-list <cli> clientes;
+list<cliente_t> clientes;
 
 void adicionarCliente(){
 	cli.cod;
@@ -21,6 +27,6 @@ void excluirCliente(){
 }
 
 void RecuperaraClientes(){
-	cli.push_back(clientes);
+	clientes.push_back(cli);
 }
 

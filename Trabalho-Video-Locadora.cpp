@@ -1,10 +1,48 @@
-#include<strings>
 #include<iostream>
-#include<list>
-struct cliente {
-    int cod;
-    string nome;
-    int idade;
+#include<stdio.h>
+#include<string>
+#include"controle/cliente.cpp"
+#include"controle/acervo.cpp"
+
+using namespace std;
+
+void cadastroCliente(){
+    cout << "1 - Incluir | 2 - Alterar | 3 - Excluir" << endl;
+    int entrada;
+    cliente_t cli;
+    cin >> entrada;
+    switch (entrada)
+    {
+        case 1:
+            //cli.cod = getCodCliente;
+            cout << "Nome:" << endl;
+            cin >> cli.nome;
+            cout << "Idade:" << endl;
+            cin >> cli.idade;
+            break;
+
+        case 2:
+            //listar cliente
+            cout << "Cod.:" << endl;
+            cin >> cli.cod;
+            cout << "Nome:" << endl;
+            cin >> cli.nome;
+            cout << "Idade:" << endl;
+            cin >> cli.idade;
+            //alterarCliente(cli);
+            break;    
+
+        case 3:
+            //listar cliente
+            int cod;
+            cout << "Cod.:" << endl;
+            cin >> cod;
+            //excluirCliente(cod);
+            break;
+
+        default:
+            break;
+    }    
 }
 
 int main () {
@@ -19,7 +57,7 @@ int main () {
         switch (entrada)
         {
             case 1:
-                //Cliente.cadastrar();
+                cadastroCliente;
                 break;
             case 2:
                 //Acervo.cadastrar();
@@ -30,7 +68,7 @@ int main () {
             case 0:
                 break;           
             default:
-                cout << "Comando Inválido";
+                cout << "Comando InvÃ¡lido";
                 break;
         }
     }while(entrada != 0);

@@ -1,10 +1,17 @@
 #include <string>
 #include <iostream>
 #include <list>
-#include "controle/estrutura.cpp"
+#include "estrutura.cpp"
+
+struct acervo_t {
+    int cod;
+    string titulo;
+    string genero;
+    float valor;
+};
 
 acervo_t acer ;
-list <acer> acervos
+list<acervo_t> acervos;
 void adicionarAcervo (){
 	acer.cod;
 	acer.genero;
@@ -21,5 +28,5 @@ void removerAcervo(){
 }
 
 void buscarAcervos(){
-	acer.push_back(acervos);
+	acervos.push_back(acer);
 }
