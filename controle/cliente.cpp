@@ -3,7 +3,7 @@
 #include <list>
 #include "controle/estrutura.cpp"
 
-cliente cli;
+cliente_t cli;
 list <cli> clientes;
 
 void adicionarCliente(){

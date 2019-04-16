@@ -1,12 +1,12 @@
 #include<string>
 
 using namespace std;
-struct cliente {
+struct cliente_t {
     int cod;
     string nome;
     int idade;
 };
-struct acervo {
+struct acervo_t {
     int cod;
     string titulo;
     string genero;

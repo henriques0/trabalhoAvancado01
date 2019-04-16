@@ -3,7 +3,7 @@
 #include <list>
 #include "controle/estrutura.cpp"
 
-acervo acer ;
+acervo_t acer ;
 list <acer> acervos
 void adicionarAcervo (){
 	acer.cod;
