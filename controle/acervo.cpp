@@ -1,8 +1,8 @@
 #include <string>
 #include <iostream>
 #include <list>
-#include "estrutura.cpp"
 
+using namespace std;
 struct acervo_t {
     int cod;
     string titulo;
@@ -10,13 +10,13 @@ struct acervo_t {
     float valor;
 };
 
-acervo_t acer ;
 list<acervo_t> acervos;
 void adicionarAcervo (){
-	acer.cod;
+	/*acer.cod;
 	acer.genero;
 	acer.titulo;
 	acer.valor;
+	*/
 }
 
 void alterarAcervo(){
@@ -28,5 +28,5 @@ void removerAcervo(){
 }
 
 void buscarAcervos(){
-	acervos.push_back(acer);
+	//acervos.push_back(acer);
 }

@@ -61,34 +61,35 @@ void cadastroCliente(){
     switch (entrada)
     {
         case 1:
-            //cli.cod = getCodCliente;
+            cli.cod = getCodCliente();
             cout << "Nome:" << endl;
             cin >> cli.nome;
             cout << "Idade:" << endl;
             cin >> cli.idade;
+            adicionarCliente(cli);
             break;
 
         case 2:
-            //listar cliente
+            listarCliente();
             cout << "Cod.:" << endl;
             cin >> cli.cod;
             cout << "Nome:" << endl;
             cin >> cli.nome;
             cout << "Idade:" << endl;
             cin >> cli.idade;
-            //alterarCliente(cli);
+            alterarCliente(cli);
             break;    
 
         case 3:
-            //listar cliente
+            listarCliente();
             int cod;
             cout << "Cod.:" << endl;
             cin >> cod;
-            //excluirCliente(cod);
+            excluirCliente(cod);
             break;
 
-        case 4:
-            //listar
+        case 4:            
+            listarCliente();
             break;    
 
         default:
@@ -96,14 +97,16 @@ void cadastroCliente(){
     }    
 }
 
-int main () {
-    system("clear");
-    cout << "1 - Cadastrar Cliente" << endl;
-    cout << "2 - Cadastrar Acervo" << endl;
-    cout << "3 - Locar" << endl;
-    cout << "0 - Sair" << endl;
+int main () {  
+    system("clear");  
     int entrada;
     do{
+        cout << "------------------------------" << endl;        
+        cout << "1 - Cadastrar Cliente" << endl;
+        cout << "2 - Cadastrar Acervo" << endl;
+        cout << "3 - Locar" << endl;
+        cout << "0 - Sair" << endl;   
+        cout << "------------------------------" << endl;        
         cin >> entrada;
         switch (entrada)
         {
