@@ -6,8 +6,55 @@
 
 using namespace std;
 
+void cadastroAcervo(){
+    cout << "1 - Incluir | 2 - Alterar | 3 - Excluir | 4 - Listar" << endl;
+    int entrada;
+    acervo_t acer;
+    cin >> entrada;
+    switch (entrada)
+    {
+        case 1:
+            //cli.cod = getCodAcervo;
+            cout << "Titulo:" << endl;
+            cin >> acer.titulo;
+            cout << "Gênero:" << endl;
+            cin >> acer.genero;
+            cout << "Valor:" << endl;
+            cin >> acer.valor;
+            break;
+
+        case 2:
+            //listar cliente
+            cout << "Cod.:" << endl;
+            cin >> acer.cod;
+            cout << "Titulo:" << endl;
+            cin >> acer.titulo;
+            cout << "Gênero:" << endl;
+            cin >> acer.genero;
+            cout << "Valor:" << endl;
+            cin >> acer.valor;
+            //alterarCliente(cli);
+            break;    
+
+        case 3:
+            //listar cliente
+            int cod;
+            cout << "Cod.:" << endl;
+            cin >> cod;
+            //excluirCliente(cod);
+            break;
+
+        case 4:
+            //listar
+            break;    
+
+        default:
+            break;
+    }    
+}
+
 void cadastroCliente(){
-    cout << "1 - Incluir | 2 - Alterar | 3 - Excluir" << endl;
+    cout << "1 - Incluir | 2 - Alterar | 3 - Excluir | 4 - Listar" << endl;
     int entrada;
     cliente_t cli;
     cin >> entrada;
@@ -40,6 +87,10 @@ void cadastroCliente(){
             //excluirCliente(cod);
             break;
 
+        case 4:
+            //listar
+            break;    
+
         default:
             break;
     }    
@@ -57,10 +108,10 @@ int main () {
         switch (entrada)
         {
             case 1:
-                cadastroCliente;
+                cadastroCliente();
                 break;
             case 2:
-                //Acervo.cadastrar();
+                cadastroAcervo();
                 break;
             case 3:
                 //Locar();
