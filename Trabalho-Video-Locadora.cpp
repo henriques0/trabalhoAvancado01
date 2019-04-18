@@ -97,6 +97,10 @@ void cadastroCliente(){
     }    
 }
 
+void movimentoLocacao(){
+
+}
+
 int main () {  
     system("clear");  
     int entrada;
@@ -117,7 +121,7 @@ int main () {
                 cadastroAcervo();
                 break;
             case 3:
-                //Locar();
+                movimentoLocacao();
                 break; 
             case 0:
                 break;           
