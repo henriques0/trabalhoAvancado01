@@ -44,3 +44,13 @@ void listarCliente(){
 	}
 }
 
+cliente_t buscarCliente(int cod){
+	for(list<cliente_t>::iterator it = clientes.begin(); it != clientes.end(); it++){
+		if((*it).cod = cod){
+			return (*it);
+		}
+	}
+	cout << "Código Inválido";
+}
+
+

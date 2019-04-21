@@ -1,30 +1,32 @@
 #include<iostream>
 #include<stdio.h>
 #include<string>
-#include"controle/cliente.cpp"
-#include"controle/acervo.cpp"
+#include"movimento/locacao.cpp"
 
 using namespace std;
 
 void cadastroAcervo(){
+    system("clear");
     cout << "1 - Incluir | 2 - Alterar | 3 - Excluir | 4 - Listar" << endl;
     int entrada;
     acervo_t acer;
     cin >> entrada;
+    system("clear");
     switch (entrada)
     {
         case 1:
-            //cli.cod = getCodAcervo;
+            acer.cod = getCodAcervo();
             cout << "Titulo:" << endl;
             cin >> acer.titulo;
             cout << "Gênero:" << endl;
             cin >> acer.genero;
             cout << "Valor:" << endl;
             cin >> acer.valor;
+            adicionarAcervo(acer);
             break;
 
         case 2:
-            //listar cliente
+            //listar acervos
             cout << "Cod.:" << endl;
             cin >> acer.cod;
             cout << "Titulo:" << endl;
@@ -33,7 +35,7 @@ void cadastroAcervo(){
             cin >> acer.genero;
             cout << "Valor:" << endl;
             cin >> acer.valor;
-            //alterarCliente(cli);
+            alterarAcervo(acer);
             break;    
 
         case 3:
@@ -41,11 +43,11 @@ void cadastroAcervo(){
             int cod;
             cout << "Cod.:" << endl;
             cin >> cod;
-            //excluirCliente(cod);
+            excluirAcervo(cod);
             break;
 
         case 4:
-            //listar
+            listarAcervo();
             break;    
 
         default:
@@ -54,10 +56,12 @@ void cadastroAcervo(){
 }
 
 void cadastroCliente(){
+    system("clear");
     cout << "1 - Incluir | 2 - Alterar | 3 - Excluir | 4 - Listar" << endl;
     int entrada;
     cliente_t cli;
     cin >> entrada;
+    system("clear");
     switch (entrada)
     {
         case 1:
@@ -98,6 +102,67 @@ void cadastroCliente(){
 }
 
 void movimentoLocacao(){
+    cout << "1 - Locar | 2 - Devolver | 3 - Voltar " << endl;    
+    int entrada, codigo; 
+    float vr_total;  
+    cin >> entrada;
+    system("clear");
+    switch (entrada)
+    {
+    case 1:
+        do{
+            cout << "1 - Adicionar Acervo | 2 - Remover Acervo | 3 - Locar" << endl;
+            cin >> entrada; 
+            system("clear");               
+            switch (entrada)
+            {
+            case 1:
+                listarAcervoDisponivel();
+                cout << "Digite o Código do Acervo a ser adicionado!" << endl;
+                cin >> codigo;
+                adicionarAcervoLocacao(buscarAcervo(codigo));
+                break;
+            
+            case 2:
+                listarAcervoLocacao();
+                cout << "Digite o Código do Acervo a ser Removido!" << endl;
+                cin >> codigo;
+                removerAcervoLocacao(codigo);                
+                break;
+
+            case 3:
+                listarCliente();
+                cout << "Digite o Código do Cliente" << endl;    
+                cin >> codigo;
+                locar(buscarCliente(codigo));
+                cout << "Locado com Sucesso!" << endl;
+                break;
+
+            default:
+                break;
+            }
+        } while(entrada < 3);
+        break;
+    
+    case 2:
+        char resposta;
+        listarCliente();
+        cout << "Escolha um Cliente" << endl;
+        cin >> codigo;
+        do{
+            acervo_t acer;
+            listarAcervoPorCliente(codigo);
+            cout << "Qual Deseja Devolver?" << endl;
+            cin >> codigo;
+            acer = buscarAcervo(codigo);
+            acer.cod_cliente = 0;
+            vr_total = vr_total + acer.valor;
+            cout << "Deseja Devolver Mais Algum? S/N" << endl; 
+        } while(resposta == 'S');        
+        break;
+    default:
+        break;
+    }
 
 }
 
