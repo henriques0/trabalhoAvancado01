@@ -1,6 +1,7 @@
 #include <string>
 #include <iostream>
 #include <list>
+#include"../controle/cliente.cpp"
 
 using namespace std;
 struct acervo_t {
@@ -45,7 +46,8 @@ void listarAcervo(){
 		cout << (*it).cod << " - " 
 		<< (*it).titulo << " - " 
 		<< (*it).genero << " -  R$" 
-		<< (*it).valor << endl;
+		<< (*it).valor 
+		<< buscarCliente((*it).cod_cliente).nome << endl;
 	}
 }
 
@@ -55,7 +57,8 @@ void listarAcervoLocado(){
 			cout << (*it).cod << " - " 
 			<< (*it).titulo << " - " 
 			<< (*it).genero << " -  R$" 
-			<< (*it).valor << endl;
+			<< (*it).valor << " - " 
+			<< buscarCliente((*it).cod_cliente).nome << endl;
 		}
 	}
 }

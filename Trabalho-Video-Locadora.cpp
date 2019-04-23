@@ -106,43 +106,46 @@ void movimentoLocacao(){
     int entrada, codigo;
     float vr_total;
     cin >> entrada;
-    system("clear");
+    system("clear");    
     switch (entrada)
     {
-    case 1:
-        do{
-            cout << "1 - Adicionar Acervo | 2 - Remover Acervo | 3 - Locar" << endl;
-            cin >> entrada;
-            system("clear");
-            switch (entrada)
-            {
-            case 1:
-                listarAcervoDisponivel();
-                cout << "Digite o Código do Acervo a ser adicionado!" << endl;
-                cin >> codigo;
-                adicionarAcervoLocacao(buscarAcervo(codigo));
-                break;
+    case 1: 
+        {
+            locacao_t* locacao = new locacao_t();        
+            do{                      
+                cout << "1 - Adicionar Acervo | 2 - Remover Acervo | 3 - Locar" << endl;
+                cin >> entrada;
+                system("clear");
+                switch (entrada)
+                {
+                case 1:
+                    listarAcervoDisponivel();
+                    cout << "Digite o Código do Acervo a ser adicionado!" << endl;
+                    cin >> codigo;
+                    adicionarAcervoLocacao(buscarAcervo(codigo), locacao);
+                    break;
 
-            case 2:
-                listarAcervoLocacao();
-                cout << "Digite o Código do Acervo a ser Removido!" << endl;
-                cin >> codigo;
-                removerAcervoLocacao(codigo);
-                break;
+                case 2:
+                    listarAcervoLocacao(locacao);
+                    cout << "Digite o Código do Acervo a ser Removido!" << endl;
+                    cin >> codigo;
+                    removerAcervoLocacao(codigo, locacao);
+                    break;
 
-            case 3:
-                listarCliente();
-                cout << "Digite o Código do Cliente" << endl;
-                cin >> codigo;
-                locar(buscarCliente(codigo));
-                cout << "Locado com Sucesso!" << endl;
-                break;
+                case 3:
+                    listarCliente();
+                    cout << "Digite o Código do Cliente" << endl;
+                    cin >> codigo;
+                    locar(buscarCliente(codigo), locacao);
+                    cout << "Locado com Sucesso!" << endl;
+                    break;
 
-            default:
-                break;
-            }
-        } while(entrada < 3);
-        break;
+                default:
+                    break;
+                }
+            } while(entrada < 3);
+            break;
+        }
 
     case 2: //Devolução
         char resposta;
@@ -160,6 +163,7 @@ void movimentoLocacao(){
             cout << "Deseja Devolver Mais Algum? S/N" << endl;
         } while(resposta == 'S');
         break;
+
     default:
         break;
     }
