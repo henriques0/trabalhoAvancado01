@@ -1,6 +1,6 @@
 #include<iostream>
 #include<stdio.h>
-#include<string>
+#include <cstdlib>
 #include"movimento/locacao.cpp"
 
 using namespace std;
@@ -36,7 +36,7 @@ void cadastroAcervo(){
             cout << "Valor:" << endl;
             cin >> acer.valor;
             alterarAcervo(acer);
-            break;    
+            break;
 
         case 3:
             //listar cliente
@@ -48,11 +48,11 @@ void cadastroAcervo(){
 
         case 4:
             listarAcervo();
-            break;    
+            break;
 
         default:
             break;
-    }    
+    }
 }
 
 void cadastroCliente(){
@@ -82,7 +82,7 @@ void cadastroCliente(){
             cout << "Idade:" << endl;
             cin >> cli.idade;
             alterarCliente(cli);
-            break;    
+            break;
 
         case 3:
             listarCliente();
@@ -92,19 +92,19 @@ void cadastroCliente(){
             excluirCliente(cod);
             break;
 
-        case 4:            
+        case 4:
             listarCliente();
-            break;    
+            break;
 
         default:
             break;
-    }    
+    }
 }
 
 void movimentoLocacao(){
-    cout << "1 - Locar | 2 - Devolver | 3 - Voltar " << endl;    
-    int entrada, codigo; 
-    float vr_total;  
+    cout << "1 - Locar | 2 - Devolver | 3 - Voltar " << endl;
+    int entrada, codigo;
+    float vr_total;
     cin >> entrada;
     system("clear");
     switch (entrada)
@@ -112,8 +112,8 @@ void movimentoLocacao(){
     case 1:
         do{
             cout << "1 - Adicionar Acervo | 2 - Remover Acervo | 3 - Locar" << endl;
-            cin >> entrada; 
-            system("clear");               
+            cin >> entrada;
+            system("clear");
             switch (entrada)
             {
             case 1:
@@ -122,17 +122,17 @@ void movimentoLocacao(){
                 cin >> codigo;
                 adicionarAcervoLocacao(buscarAcervo(codigo));
                 break;
-            
+
             case 2:
                 listarAcervoLocacao();
                 cout << "Digite o Código do Acervo a ser Removido!" << endl;
                 cin >> codigo;
-                removerAcervoLocacao(codigo);                
+                removerAcervoLocacao(codigo);
                 break;
 
             case 3:
                 listarCliente();
-                cout << "Digite o Código do Cliente" << endl;    
+                cout << "Digite o Código do Cliente" << endl;
                 cin >> codigo;
                 locar(buscarCliente(codigo));
                 cout << "Locado com Sucesso!" << endl;
@@ -143,8 +143,8 @@ void movimentoLocacao(){
             }
         } while(entrada < 3);
         break;
-    
-    case 2:
+
+    case 2: //Devolução
         char resposta;
         listarCliente();
         cout << "Escolha um Cliente" << endl;
@@ -157,8 +157,8 @@ void movimentoLocacao(){
             acer = buscarAcervo(codigo);
             acer.cod_cliente = 0;
             vr_total = vr_total + acer.valor;
-            cout << "Deseja Devolver Mais Algum? S/N" << endl; 
-        } while(resposta == 'S');        
+            cout << "Deseja Devolver Mais Algum? S/N" << endl;
+        } while(resposta == 'S');
         break;
     default:
         break;
@@ -166,16 +166,22 @@ void movimentoLocacao(){
 
 }
 
-int main () {  
-    system("clear");  
+void relatorio(){
+    system("clear");
+    
+}
+
+int main () {
+    system("clear");
     int entrada;
     do{
-        cout << "------------------------------" << endl;        
+        cout << "------------------------------" << endl;
         cout << "1 - Cadastrar Cliente" << endl;
         cout << "2 - Cadastrar Acervo" << endl;
         cout << "3 - Locar" << endl;
-        cout << "0 - Sair" << endl;   
-        cout << "------------------------------" << endl;        
+        cout << "4 - Relatórios" << endl;
+        cout << "0 - Sair" << endl;
+        cout << "------------------------------" << endl;
         cin >> entrada;
         switch (entrada)
         {
@@ -187,9 +193,12 @@ int main () {
                 break;
             case 3:
                 movimentoLocacao();
-                break; 
+                break;
+            case 4:
+                relatorio();
+                break;  
             case 0:
-                break;           
+                break;
             default:
                 cout << "Comando Inválido";
                 break;
