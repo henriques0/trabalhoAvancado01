@@ -19,7 +19,7 @@ void adicionarAcervoLocacao(acervo_t acer, locacao_t* locacao){
 
 void removerAcervoLocacao(int cod, locacao_t* locacao){
 	for(list<acervo_t>::iterator it = (*locacao).acervo.begin(); it != (*locacao).acervo.end(); it++){
-		if((*it).cod = cod){	
+		if((*it).cod == cod){	
 			(*locacao).acervo.erase(it);
 			break;
 		}
