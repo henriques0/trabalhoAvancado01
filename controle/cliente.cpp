@@ -22,7 +22,7 @@ void adicionarCliente(cliente_t cli){
 
 void alterarCliente(cliente_t cli){
 	for(list<cliente_t>::iterator it = clientes.begin(); it != clientes.end(); it++){
-		if((*it).cod = cli.cod){
+		if((*it).cod == cli.cod){
 			(*it) = cli;
 			break;
 		}
@@ -31,7 +31,7 @@ void alterarCliente(cliente_t cli){
 
 void excluirCliente(int cod){
 	for(list<cliente_t>::iterator it = clientes.begin(); it != clientes.end(); it++){
-		if((*it).cod = cod){	
+		if((*it).cod == cod){	
 			clientes.erase(it);
 			break;
 		}
